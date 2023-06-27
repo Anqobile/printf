@@ -1,0 +1,79 @@
+#include <unistd.h>
+#include <stdarg.h>
+
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+        return write(1, &c, 1);
+}
+
+
+/**
+ * _printf - custom implementation of printf function
+ * @fmt_str: The format string
+ * @...: Variable number of arguments
+ *
+ * Return: The number of characters printed
+ */
+int _printf(char *fmt_str, ...)
+{
+        int printed_chars = 0;
+        va_list mylist;
+
+        va_start(mylist, fmt_str);
+
+        while (*fmt_str != '\0')
+        {
+                if (*fmt_str == '%')
+                {
+                        fmt_str++;
+                        if (*fmt_str == 'c')
+                        {
+                                _putchar(va_arg(mylist, int));
+                                printed_chars++;
+                        }
+                        else if (*fmt_str == 's')
+                        {
+                                char *my_str = va_arg(mylist, char *);
+
+                                while (*my_str)
+                                {
+                                        _putchar(*my_str);
+                                        printed_chars++;
+                                        my_str++;
+                                }
+                        }
+                }
+                else
+                {
+                        _putchar(*fmt_str);
+                        printed_chars++;
+                }
+                fmt_str++;
+        }
+
+        va_end(mylist);
+
+        return printed_chars;
+}
+
+
+/**
+ * main - starting point of program
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+        _printf("Hello World %c \n", 'H');
+        _printf("My name is %s my initial is %c \n", "John", 'J');
+
+        return 0;
+}
