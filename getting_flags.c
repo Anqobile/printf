@@ -21,7 +21,8 @@ int get_flags(const char *format, int *d)
 			{
 				flagz |= FLAGS_ARR[p];
 				break;
-			}if (FLAGS_CH[p] == 0)
+			}
+		if (FLAGS_CH[p] == 0)
 		break;
 	}
 	*d = mur_d - 1;

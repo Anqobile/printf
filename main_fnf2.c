@@ -20,6 +20,7 @@ int print_pointer(va_list types, char buffer[],
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
 	void *addrs = va_arg(types, void *);
+
 	UNUSED(width);
 	UNUSED(size);
 	if (addrs == NULL)
@@ -30,7 +31,8 @@ int print_pointer(va_list types, char buffer[],
 
 	while (num_addrs > 0)
 	{
-		buffer[ind--] = map_to[num_addrs % 16];num_addrs /= 16;
+		buffer[ind--] = map_to[num_addrs % 16];
+		num_addrs /= 16;
 		length++;
 	}
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
@@ -47,7 +49,7 @@ int print_pointer(va_list types, char buffer[],
 
 /******************** PRINT NON PRINTABLE CHARACTERS ********************/
 /**
- * print_non_printable - Prints ASCII codes in hexadecimal of non printable chars
+ * print_non_printable - Print ASCII codes in hexadecimal of nonprintable char
  * @types: Arguments list
  * @buffer: Buffer array
  * @flags: Calculates flacts that are active
@@ -62,6 +64,7 @@ int print_non_printable(va_list types, char buffer[],
 {
 	int x = 0, offset = 0;
 	char *strng = va_arg(types, char *);
+
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(precision);
@@ -71,7 +74,7 @@ int print_non_printable(va_list types, char buffer[],
 	while (strng[x] != '\0')
 	{
 		if (is_printable(strng[x]))
-			buffer[x + offset] = strng[x];else
+			buffer[x + offset] = strng[x]; else
 				offset += append_hexa_code(strng[x], buffer, x + offset);
 		x++;
 	}
@@ -96,6 +99,7 @@ int print_reverse(va_list types, char buffer[],
 {
 	char *strng;
 	int x, count = 0;
+
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
@@ -137,7 +141,9 @@ int print_rot13string(va_list types, char buffer[],
 	int count = 0;
 	char ins[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char outs[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
 	strng = va_arg(types, char *);
+
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
@@ -153,7 +159,8 @@ int print_rot13string(va_list types, char buffer[],
 			{
 				x = outs[p];
 				write(1, &x, 1);
-				count++;break;
+				count++;
+				break;
 			}
 		}
 		if (!ins[p])
