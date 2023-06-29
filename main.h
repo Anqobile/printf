@@ -36,7 +36,7 @@ int _printf(const char *format, ...);
 int handle_print(const char *fmtt, int *ind,
 		va_list xlist, char buffer[], int flags, int width, int precision, int
 		size);
-
+int _putchar(char c);
 
 /****************** FUNCTIONS ******************/
 /* Print characters and strings */
