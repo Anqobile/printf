@@ -7,19 +7,19 @@ TEAM MEMBERS:
 PROJECT FILE STRUCTURE:
 
 1. README.md
-2. _f_printer.c - main file containing modified printf function
-3. Main_fn.c - part one of main functions
-4. main_fn1.c - second part of core main functions
-5. main_fn2.c - Third part of core main functions
-6. getting_flags.c - function to get flags when available
-7. buff_width.c - function to get buffer width
-8. size.c - function to get buffer size
-9. handlers.c - function handlers for printf
-10. print_handler.c
-11. precision.c
-12. utilities.c 
-13. main.h - contains all function prototypes & standard library inclusions
-14. a.out - compiled completed printf project file
+2. fprinter.c - main file containing modified printf funtion.
+3. rev_string.c - reverses it itput.
+4. char.c - converts int to char.
+5. string.c - makes string.
+6. conv_binary.c - converts int or string to binary.
+7. string_cpy.c - copies steing.
+8. conv_deci.c - converts int to decimal.
+9. make_rot13.c - encrypts string in rot13 style.
+10. string_len.c - gets length of string.
+11. core_functions.c - contains functions to get orfunctions and buffer.
+12. mk_octal.c - converts string into octal.
+13. main.h - contains all function prototypes & standard library inclusions.
+14. a.out - compiled completed printf project file.
 
 TASKS SPECIFICS:
 
@@ -71,3 +71,4 @@ ring
 Handle the following custom conversion specifier:
 15. *
 All the above options work well together.
+
