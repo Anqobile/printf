@@ -16,9 +16,8 @@ char *itoOctal(va_list list)
 	n = k;
 
 	s = malloc(sizeof(char) * 12);
-	if
-		(s == NULL);
-	return (NULL);
+	if (s == NULL)
+		return (NULL);
 
 	if (k < 0)
 	{
@@ -28,7 +27,7 @@ char *itoOctal(va_list list)
 		n *= -1;
 	}
 
-	/* find largest power of 8 its divisible by */
+	/* find largest power of 8 it's divisible by */
 	while (k > 1)
 	{
 		k /= 8;

@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _itos - converts an interger to a string
+ * _itos - convert an integer to a string
  * @div: multiple of 10
- * @length: number of length
+ * @length: number length
  * @n: digits to convert to string
  * Return: string (made from int)
- */
+ **/
 
 char *_itos(int div, int length, int n)
 {
@@ -36,15 +36,15 @@ char *_itos(int div, int length, int n)
 		div /= 10;
 		u++;
 	}
-	str[u] = '/0';
+	str[u] = '\0';
 	return (str);
 }
 
 /**
  * print_d - gets length to put in int-to-str function
  * @list: takes arguments
- * Return: intefer string
- */
+ * Return: integer string
+ **/
 
 char *print_d(va_list list)
 {

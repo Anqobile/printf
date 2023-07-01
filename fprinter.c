@@ -18,14 +18,14 @@ int check_buffer_overflow(char *buffer, int len)
 }
 
 /**
- * _printf - custom version of the standard printf function
+ * _printf - custom version of the standard printf fuction
  * @format: string with all identifiers
- * Return: expand strings with identifiers
+ * Return: expanded strings with identifiers
  */
 
 int _printf(const char *format, ...)
 {
-	int len = 0, total_len = 0, k = 0, ; = 0;
+	int len = 0, total_len = 0, k = 0, l = 0;
 	va_list list;
 	char *buffer, *str;
 	char* (*f)(va_list);
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 		if (format[k] != '%')
 		{
 			len = check_buffer_overflow(buffer, len);
-			buffer[len++] format[k++];
+			buffer[len++] = format[k++];
 			total_len++;
 		}
 		else
@@ -64,11 +64,11 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				f = get_func(format[k]) /* collection function */
-				if (f == NULL) /* handle fake identifier */
+				f = get_func(format[k]); /* collect function */
+				if (f == NULL)  /* handle fake identifire */
 				{
 					len = check_buffer_overflow(buffer, len);
-					buffer[len++] '%'; total_len++;
+					buffer[len++] = '%'; total_len++;
 					buffer[len++] = format[k]; total_len++;
 				}
 				else /* copy to buffer */
@@ -94,7 +94,7 @@ int _printf(const char *format, ...)
 						total_len++;
 						l++;
 					}
-					fre(str);
+					free(str);
 				}
 			} k++;
 		}
@@ -110,18 +110,18 @@ int _printf(const char *format, ...)
 
 int test(void)
 {
-	_printf("\n\n\nHere's some explamples of what you could do with this custom_printf function!\n\n\n");
+	_printf("\n\n\nHere's some examples of what you could do with this custom_printf function!\n\n\n");
 	sleep(1);
-	_printf("\nPrinting Strings, Characters, and Numbers...... %s%c%drld\n\n", "Hello", 'W', 0);
+	_printf("\nPrinting Strings, Characters, and Numbers...... %s %c%drld\n\n", "Hello", 'W', 0);
 	sleep(1);
-	_printf("Printing Reverse...... %r\n\n", "Hello");
+	_printf("Printing Reverse...... %r \n\n", "Hello");
 	sleep(1);
 	_printf("Printing Binary (base 2)...... %b \n\n", "Hello");
 	sleep(1);
 	_printf("Printing Octal (base 8)...... %o \n\n", "Hello");
 	sleep(1);
-	_printf("Printing Rot13 (encrpty)...... %R \n\n", "Hello");
+	_printf("Printing Rot13 (encrypt)...... %R \n\n", "Hello");
 	sleep(1);
-	_printf("\n\n      = ) \n\n\n");
+	_printf("\n\n             = )                  \n\n\n");
 	return (0);
 }
