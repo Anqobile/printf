@@ -60,5 +60,6 @@ void write_buffer(char *buffer, int len, va_list list)
 	barfar = realloc(buffer, len); /* realloc to correct size of buffer */
 	write(1, barfar, len); /* print buffer contents */
 
-	free(barfar); va_end(list);
+	free(barfar);
+	va_end(list);
 }
